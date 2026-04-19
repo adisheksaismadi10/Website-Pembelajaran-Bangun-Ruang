@@ -715,6 +715,7 @@
     <div id="splash-screen">
         <h1 class="splash-title">🎓 Belajar Bangun Ruang<br>Interaktif 🎓</h1>
         <button class="splash-btn" onclick="startApp()">Masuk</button>
+        <button class="splash-btn" style="background: #FF6B6B; margin-top: 15px;" onclick="goToLandingPage()">⬅️ Kembali</button>
     </div>
 
     <!-- Home Page -->
@@ -722,6 +723,7 @@
         <div class="header">
             <h1> Selamat Datang di Pembelajaran Bangun Ruang! </h1>
             <p>Mari belajar bangun ruang dengan cara yang menyenangkan dan interaktif!</p>
+            <button class="back-btn" onclick="goToLandingPage()">⬅️ Kembali ke Landing Page</button>
         </div>
 
         <div class="content-box">
@@ -751,6 +753,7 @@
     <div id="materi-page" class="page container">
         <div class="header">
             <h1 id="materi-title">Materi Bangun Ruang</h1>
+            <p id="materi-deskripsi" style="font-size: 0.95rem; margin-top: 8px; color: #f0f0f0; font-style: italic;"></p>
             <button class="back-btn" onclick="showPage('home-page')">⬅️ Kembali ke Beranda</button>
         </div>
 
@@ -814,6 +817,10 @@
                 <div class="materi-image" id="gambar-jaring4">
                     <!-- GAMBAR JARING-JARING 4 DITAMPILKAN DI SINI -->
                     <p>Jaring-jaring</p>
+                </div>
+                <div class="materi-image" id="gambar-tambahan">
+                    <!-- GAMBAR TAMBAHAN DITAMPILKAN DI SINI -->
+                    <p>Gambar Tambahan</p>
                 </div>
             </div>
 
@@ -938,6 +945,7 @@
                 gambarJaring2: "./Aset gambar/gambar_jaring_jaring_kubus_2.png",
                 gambarJaring3: "./Aset gambar/gambar_jaring_jaring_kubus_3.png",
                 gambarJaring4: "./Aset gambar/gambar_jaring_jaring_kubus_4.png",
+                gambarTambahan: "./Aset gambar/gambar_kubus_tambahan.png",
                 animasiJaring: "./Aset animasi/animasi jaring jaring kubus.glb"
             },
             balok: {
@@ -945,12 +953,12 @@
                 unsur: `
                     <div class="rumus-box">
                         <h4>Balok memiliki unsur-unsur sebagai berikut:</h4>
-                        <h4>- Dibatasi oleh 3 pasang sisi kongruen, yaitu DCEG ≅ AKFB, ADGK ≅ BCEF, dan ADCB ≅ KGEF.</h4>
+                        <h4>- Dibatasi oleh 3 pasang sisi kongruen, yaitu ABCD ≈ EFGH, DCGH ≈ ABFE, dan ADHE ≈ BCGF.</h4>
                         <h4>- Memiliki 8 titik sudut, yaitu A, B, C, D, E, F, G, dan H.</h4>
-                        <h4>- Memiliki 12 rusuk, yaitu AB, BC, CD, DA, AK, KG, GD, GE, EF, FK, EC, dan BF.</h4>
-                        <h4>- Memiliki 12 diagonal sisi, yaitu DE, CG, AG, DK, BE, CF, AF, BK, KE, GF, AC, dan BD.</h4>
-                        <h4>- Memiliki 4 diagonal ruang, yatu AE, DF, CK, dan BG.</h4>
-                        <h4>- Memiliki 6 bidang diagonal, yaitu ADEF, BCGK, DCFK, ABEG, DGFB, dan AKEC.</h4>
+                        <h4>- Memiliki 12 rusuk, yaitu AB, BC, CD, DA, AE, EF, BF, CG, GH, DG, EH, dan FG.</h4>
+                        <h4>- Memiliki 12 diagonal sisi, yaitu AC, BD, AF, BE, EG, FH, DG, CH, BG, CF, AH, dan DE.</h4>
+                        <h4>- Memiliki 4 diagonal ruang, yaitu AG, HB, CE, dan DF.</h4>
+                        <h4>- Memiliki 6 bidang diagonal, yaitu ADGF, BCHE, DCFE, ABGH, DHFB, dan AEGC.</h4>
                     </div>
                 `,
                 rumusLuas: `
@@ -1007,6 +1015,7 @@
             },
             prisma: {
                 title: "Prisma Segi-n",
+                deskripsi: "n = banyak sisi bangun datar yang menjadi alas prisma",
                 unsur: `
                     <div class="rumus-box">
                         <h4>Prisma segi-n memiliki unsur-unsur sebagai berikut:</h4>
@@ -1075,6 +1084,7 @@
             },
             limas: {
                 title: "Limas Segi-n",
+                deskripsi: "n = banyak sisi bangun datar yang menjadi alas limas",
                 unsur: `
                     <div class="rumus-box">
                         <h4>- Limas segi-n memiliki unsur-unsur sebagai berikut:</h4>
@@ -1090,7 +1100,7 @@
                 `,
                 contohLuas: `
                     <p><strong>Soal:</strong> </p>
-                    <p>Hitunglah luas dari limas dibawah ini:</p>
+                    <p>Hitunglah luas permukaan dari sebuah limas segiempat yang memiliki alas berbentuk persegi di bawah ini!:</p>
                     <div class="materi-image" style="margin: 15px auto;">
                         <img src="./Aset gambar/gambar_limas_luas.jpeg" alt="Gambar Limas" style="max-width: 300px; height: auto; border-radius: 8px;">
                     </div>
@@ -1114,7 +1124,7 @@
                 `,
                 contohVolume: `
                     <p><strong>Soal:</strong> </p>
-                    <p>Hitunglah volume dari limas dibawah ini:</p>
+                    <p>Hitunglah volume dari sebuah limas segiempat yang memiliki alas berbentuk persegi di bawah ini!:</p>
                     <div class="materi-image" style="margin: 15px auto;">
                         <img src="./Aset gambar/gambar_limas_volume.jpeg" alt="Gambar Limas" style="max-width: 300px; height: auto; border-radius: 8px;">
                     </div>
@@ -1153,7 +1163,7 @@
                     correct: 1
                 },
                 {
-                    question: "Jika panjang sisi kubus 3 cm, berapakah volumenya?",
+                    question: "Diketahui sebuah kardus berbentuk kubus memiliki rusuk 15 cm. Tentukan volume kardus tersebut!",
                     options: ["A. 9 cm³", "B. 18 cm³", "C. 27 cm³", "D. 54 cm³"],
                     correct: 2
                 },
@@ -1271,6 +1281,11 @@
             }, 500);
         }
 
+        // Go to Landing Page
+        function goToLandingPage() {
+            window.location.href = 'landing-page-bangun-ruang.html';
+        }
+
         // Show Page
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
@@ -1285,6 +1300,7 @@
             
             // Update konten
             document.getElementById('materi-title').innerHTML = data.title;
+            document.getElementById('materi-deskripsi').innerHTML = data.deskripsi || '';
             document.getElementById('bangun-name').textContent = data.title;
             document.getElementById('unsur-content').innerHTML = data.unsur;
             document.getElementById('rumus-luas').innerHTML = data.rumusLuas;
@@ -1338,6 +1354,16 @@
                 const gambarJaring4Div = document.getElementById('gambar-jaring4');
                 if (gambarJaring4Div) {
                     gambarJaring4Div.innerHTML = `<img src="${data.gambarJaring4}" alt="Jaring-jaring 4 ${data.title}" style="max-width: 300px; height: auto; border-radius: 8px;">`;
+                }
+            }
+
+            // Tampilkan gambar tambahan (khusus untuk kubus)
+            const gambarTambahanDiv = document.getElementById('gambar-tambahan');
+            if (gambarTambahanDiv) {
+                if (data.gambarTambahan) {
+                    gambarTambahanDiv.innerHTML = `<img src="${data.gambarTambahan}" alt="Gambar Tambahan ${data.title}" style="max-width: 300px; height: auto; border-radius: 8px;">`;
+                } else {
+                    gambarTambahanDiv.style.display = 'none';
                 }
             }
             
